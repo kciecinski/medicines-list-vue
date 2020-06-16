@@ -1,17 +1,58 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="container">
+      <orders-list :orders="orders"/>
+      <order-form />
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import OrdersList from './components/OrdersList.vue'
+import OrderForm from './components/OrderForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    OrdersList,
+    OrderForm
+  },
+  data() {
+    return{ 
+      orders: [{
+        medicines : "Ibuprofen",
+        datetime: "12.04.2012",
+        quantity: 12,
+        departament: "SOR",
+        patient: {
+          firstName: "Andrew",
+          lastName: "Gołota",
+          id: "97021292322"
+        }
+      },
+      {
+        medicines : "Stoperan",
+        datetime: "12.04.2012",
+        quantity: 12,
+        departament: "Onkologia",
+        patient: {
+          firstName: "John",
+          lastName: "Malkovitch",
+          id: "67021292322"
+        }
+      },
+      {
+        medicines : "Visatex",
+        datetime: "12.04.2012",
+        quantity: 12,
+        departament: "Główny",
+        patient: {
+          firstName: "Sam",
+          lastName: "Gammge",
+          id: "87021292322"
+        }
+      }
+    ]}
   }
 }
 </script>
