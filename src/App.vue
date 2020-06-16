@@ -2,7 +2,7 @@
   <div id="app">
     <div class="container">
       <orders-list :orders="orders"/>
-      <order-form />
+      <order-form @submitForm="updateOrders"/>
     </div>
   </div>
 </template>
@@ -21,7 +21,7 @@ export default {
     return{ 
       orders: [{
         medicines : "Ibuprofen",
-        datetime: "12.04.2012",
+        datetime: "6/16/2020, 5:02:00 AM",
         quantity: 12,
         departament: "SOR",
         patient: {
@@ -32,7 +32,7 @@ export default {
       },
       {
         medicines : "Stoperan",
-        datetime: "12.04.2012",
+        datetime: "6/14/2020, 12:02:00 AM",
         quantity: 12,
         departament: "Onkologia",
         patient: {
@@ -43,7 +43,7 @@ export default {
       },
       {
         medicines : "Visatex",
-        datetime: "12.04.2012",
+        datetime: "3/12/2020, 1:02:00 AM",
         quantity: 12,
         departament: "Główny",
         patient: {
@@ -53,6 +53,11 @@ export default {
         }
       }
     ]}
+  },
+  methods: {
+    updateOrders(order) {
+      this.orders.push(order)
+    }
   }
 }
 </script>
